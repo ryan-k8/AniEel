@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>AniEel</title>
+	<meta content="width=device-width, initial-scale=1" name="viewport" />
+	<meta content="Webflow" name="generator" />
+	<script type="text/javascript" src="/eel.js"></script>
+	<link href="https://uploads-ssl.webflow.com/60758ca46037f318d6ecf543/css/ryan-k-s-wondrous-project.webflow.5c60fbb62.css" rel="stylesheet" type="text/css"/>
+	<link href="https://www.css-spinners.com/css/spinners.css" rel="stylesheet" type="text/css">
+	<style>
+	.preloader {
+     position: absolute;
+     left: 49.5%;
+     top: 46%;
+    }
+     .preloader-body {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 99999999;
+    background: black;
+    top: 0;
+    }
+	</style>
+</head>
+<body class="body">
+	<div id="preloaderbody" class="preloader-body">
+		<div class="preloader">
+		  <span class="pulse-loader">Loading&#8230</span>
+		</div>
+	  </div>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	  <script>
+		  setTimeout(function () {
+        $('#preloaderbody').fadeToggle();
+         }, 7500);
+	  </script>
+	<header id="hero" class="hero">
+		<div class="flex-container w-container">
+			<div>
+				<h1 id="NAME"class="anime-title">~</h1>
+				<script>
+					eel.name_link("return title/name!")(nits)
+					function nits(n){
+						document.getElementById("NAME").innerHTML = n;
+					}
+				</script>
+				<p id="PLOT"class="plot-sum" style="font-size: small !important;"></p>
+				<script>
+					eel.plot_link()(pits)
+					function pits(p){
+						document.getElementById("PLOT").innerHTML=p;
+					}
+				</script>
+			</div>
+			<div class="hero-image-mask w-clearfix">
+				<img src="" id="IMAGE" alt="" class="hero-image"/>
+				<script>
+					eel.img_link()(its)
+					function its(i){
+						document.getElementById("IMAGE").src=i;
+					}
+				</script>
+			</div>
+		</div>
+		<div id="video-frame" class="div-block">
+			<div style="padding-top:56.17021276595745%" class="w-embed-youtubevideo">
+				<video id="vid-iframe"  style="position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:auto" controls allowfullscreen>
+					<source id="video-src" src="" type="video/mp4">
+				</video>
+				<script>
+					eel.Src_link()(play)
+					function play(x){
+						document.getElementById("video-src").src=x;
+						document.getElementById("vid-iframe").load();
+					}
+				</script>
+			</div>
+		</div>	
+	</header>
+	    <div id="iframe-div" class="iframe-container w-container">
+            <div style="padding-top:56.17021276595745%;margin-bottom: 50px;" class="w-embed-youtubevideo">
+				<iframe id="IFRAME"src="" frameBorder="0" style="position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:auto" allow="autoplay; encrypted-media" allowfullscreen="" scrolling="no">
+				</iframe>
+				<script>
+					eel.iframe_src_link("return iframe src!")(ifits)
+					function ifits(if_src){
+						if (if_src == "null"){
+							var Div = document.getElementById("iframe-div");
+							Div.style.display = "none";
+						} else {
+							    function hid_vidt_ornot(x){
+									if (x=="null"){
+									document.getElementById("video-frame").style.display= "none";
+									} else {
+										document.getElementById("iframe-div").style.display = "none";
+									}
+								}
+							    var vid_src = document.getElementById("video-src").src;
+								eel.check_js_vid(vid_src)(hid_vidt_ornot) 
+								document.getElementById("IFRAME").src = if_src;
+							}
+						}
+				</script>
+			</div>
+        </div>
+
+</body>
+</html>
+<!-- code below is useless-->
+<script>
+  alert("NOTE: the page isn't responsive right now \n so don't try resizing at this moment");
+</script>
