@@ -164,8 +164,7 @@ Dw = anime.episodes_link(animeid=Animeid,episode_num=Ep_no)
 
 @eel.expose
 def name_link(msg):
-    title = f'{Title}  ({Episodes} Episodes)'
-    print(f'Message from Js: {msg}')
+    title = f'{Title}  ({Episodes} Episodes)'    
     return title
 
 @eel.expose
@@ -192,7 +191,6 @@ def Src_link():
 
 @eel.expose
 def iframe_src_link(Msg):
-    print(f'Message from Js: {Msg}')
     if "DoodStream" in Dw.keys():
         dood_str = Dw.get("DoodStream") 
         dood_lst = list(dood_str)
