@@ -1,17 +1,23 @@
+from requests.api import request
 from requests_html import HTMLSession
 from bs4 import BeautifulSoup
 import requests
 import eel
- 
- # self fixed and custom version (by me) of  gogoanimeapi class from baranARR   
-class anime():
-    def __init__(self, query, animeid, episode_num, genre_name, page):
-        self.animeid = animeid
-        self.episode_num = episode_num
-        self.genre_name = genre_name
-        self.page = page
-        self.query = query
 
+#lmao xD 
+print(
+'''
+    _     _  _   ___   ___   ___   _    
+   /_\   | \| | |_ _| | __| | __| | |   
+  / _ \  | .` |  | |  | _|  | _|  | |__ 
+ /_/ \_\ |_|\_| |___| |___| |___| |____|
+              
+               Author : Ryan K. 
+                                            '''
+
+)
+
+class anime():
     def search_results(query):
         try:
             url1 = f"https://gogoanime.ai//search.html?keyword={query}"
@@ -153,8 +159,15 @@ while c:
         c = True
 Details = anime.anime_details(animeid=Animeid)
 Title = Details.get("title")
-Other = Details.get("other_names")
 Image = Details.get("image_url")
+Status = Details.get("status")
+Genre = Details.get("genre")
+genres = ''
+for i in eval(Genre):
+    genres += i + ' , '
+genres = genres[0:len(genres)-2]
+OtherName = Details.get("other_names")
+Released = Details.get("year")
 Episodes = Details.get("episodes")
 Summary = Details.get("plot_summary")
 print ("please hold on .....")
@@ -164,13 +177,39 @@ Dw = anime.episodes_link(animeid=Animeid,episode_num=Ep_no)
 
 @eel.expose
 def name_link(msg):
-    title = f'{Title}  ({Episodes} Episodes)'    
+    title = f'{Title}'    
     return title
 
 @eel.expose
 def img_link():
     img = Image
     return img
+
+@eel.expose
+def genre_link(g):
+    genre = genres
+    return genre
+
+@eel.expose
+def release_link(r):
+    release = Released
+    return release
+
+@eel.expose
+def status_link(s):
+    status = Status
+    return status
+
+
+@eel.expose
+def episodes_link(e):
+    episodes_no = Episodes
+    return episodes_no
+
+@eel.expose
+def othername_link(o):
+    othername = OtherName[11:]
+    return othername
 
 @eel.expose
 def plot_link():
@@ -187,6 +226,8 @@ def Src_link():
             source_url = source_url + i
             break
     if source_url[8] =="s":
+        global GOOGLE_URL
+        GOOGLE_URL = source_url
         return source_url
 
 @eel.expose
@@ -196,32 +237,49 @@ def iframe_src_link(Msg):
         dood_lst = list(dood_str)
         dood_lst[16] ="e"  
         dood_src = "".join(dood_lst)
-        return dood_src
-
-    elif "MixdropSV" in Dw.keys():
-        mxdrop_str = Dw.get("MixdropSV")
-        mxdrop_lst = list(mxdrop_str)
-        mxdrop_lst[19] ="e"
-        mxdrop_src = "".join(mxdrop_lst)
-        return mxdrop_src
-    
+        try:
+            requests.get(dood_src)
+            return dood_src
+        except:
+            if "StreamTape" in Dw.keys():
+                streamt_str = Dw.get("StreamTape")
+                streamt_lst = list(streamt_str)
+                streamt_lst[23] = "e"
+                streamt_src = "".join(streamt_lst)
+                return  streamt_src
+            
+            elif "MixdropSV" in Dw.keys():
+                mxdrop_str = Dw.get("MixdropSV")
+                mxdrop_lst = list(mxdrop_str)
+                mxdrop_lst[19] ="e"
+                mxdrop_src = "".join(mxdrop_lst)
+                return mxdrop_src    
     elif "StreamTape" in Dw.keys():
-
         streamt_str = Dw.get("StreamTape")
         streamt_lst = list(streamt_str)
         streamt_lst[23] = "e"
         streamt_src = "".join(streamt_lst)
         return  streamt_src
+            
+    elif "MixdropSV" in Dw.keys():
+        mxdrop_str = Dw.get("MixdropSV")
+        mxdrop_lst = list(mxdrop_str)
+        mxdrop_lst[19] ="e"
+        mxdrop_src = "".join(mxdrop_lst)
+        return mxdrop_src 
+
+
     else: 
         return "null"
 
 @eel.expose
 def check_js_vid(x):
-    if x[20] != "l":  #check if the link's not from storage.googleapis.com
+
+    if GOOGLE_URL[20] != "l":  #check if the link's not from storage.googleapis.com
         return "null"
     else:
         pass 
 
 if __name__ == "__main__":
     eel.init('web')
-    eel.start('index.html',size=(960,835))  
+    eel.start('index.html',size=(853,873)) 

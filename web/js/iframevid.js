@@ -6,13 +6,15 @@ function ifits(if_src){
     } else {
             function hid_vidt_ornot(x){
                 if (x=="null"){
-                document.getElementById("video-frame").style.display= "none";
+                document.getElementById("gvid-frame").style.display= "none";
                 } else {
                     document.getElementById("iframe-div").style.display = "none";
                 }
             }
-            var vid_src = document.getElementById("video-src").src;
+            var vid_src = document.getElementById("gvid-src").src;
             eel.check_js_vid(vid_src)(hid_vidt_ornot) 
-            document.getElementById("IFRAME").src = if_src;
+            document.getElementById("iframe-main").src = if_src;
         }
+      
     }
+    

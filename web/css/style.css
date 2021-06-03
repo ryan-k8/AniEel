@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+html{
+    font-size: 10px;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding:0;
+}
+
+body{
+    font-family: 'Roboto',sans-serif;
+    background: #F8F8F8;
+}
+
+
+/*  custom scrollbar  */
+   /* width */
+::-webkit-scrollbar{
+    width:8px;
+}
+    /* track along which it moves */
+::-webkit-scrollbar-track{
+    background: #f1f1f1;
+}
+     /* handle/scrollbar itself */
+::-webkit-scrollbar-thumb{
+    background: #ccc;
+    border-radius: 6px;
+}
+
+/* handle/scrollbar hover state */
+::-webkit-scrollbar-thumb:hover{
+     background: rgb(151, 151, 151);
+}
+
+/* utility class */
+
+.container{
+    max-width: 110rem;
+    background:#F8F8F8;
+    margin:0 auto;
+}
+
+.text-primary {
+    color:#38e7e7;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.text-center{
+    text-align: center;
+    font-size:1.5rem;
+    font-weight: bold;
+}
+.py-1 {padding:1rem 0;}
+.py-2 {padding:2rem 0;}
+.py-3 {padding:3rem 0;}
+
+.px-1 {padding: 0 1rem;}
+.px-2 {padding: 0 2rem;}
+.px-3 {padding: 0 3rem;}
+
+.p-1 {padding: 1rem; }
+.p-2 {padding: 1rem; }
+.p-3 {padding: 1rem; }
+
+/* header */
+
+#logo {
+  height:5rem;
+  background: #f4f4f4;
+  border-bottom: 1px solid #ddd;
+}
+
+#logo h1{
+    text-align: center;
+    font-size: 3.6rem;
+}
+
+
+/* main content  */
+
+#main{
+    margin-bottom: 1.2rem;
+}
+.main-content{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.main-content .main-text-info {
+    display:flex;
+    flex-direction: column;
+    margin: 1.5 rem 1rem;
+    max-width:60%;
+}
+
+
+.main-content .main-text-info .anime-title {
+       font-size:3rem;
+       margin-bottom: 0.5rem ;
+}
+
+.main-content .main-text-info .s-heading{
+    font-size: 1.3rem;
+    margin-bottom: 0.7rem;
+    text-transform:capitalize;
+}
+
+.main-image-content {
+    margin-right: 0;
+}
+
+.main-image-content #title-img{
+    display: block;
+    width:75%;
+    margin:auto;
+    border-radius: 5px;
+}
+
+
+.main-content .main-text-info .plot-info{
+    width:90%;
+    border:1.1px solid #dddddd;
+    background: #f4f4f4;
+    border-radius: 5px;
+}
+
+.main-content .main-text-info .plot-info .plot-area{
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+}
+
+
+
+/* footer */
+
+#main-footer{
+    position: sticky;
+    left:0;
+    bottom:0;
+    width: 100%;
+    overflow: auto;
+    background: #f4f4f4;
+    padding:1.5rem;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+
+ #video-section .video-flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.gdrive-video{
+    width:100%;
+    padding-bottom: 3rem;
+
+}
+
+
+.v-js {
+    display: block;
+    width:75%;
+    margin:auto;
+    aspect-ratio: 16 / 9;
+}
+
+.iframe-video{
+  width: 100%;
+  height: 37rem;
+  padding-bottom: 2.2rem;
+}
+
+.iframe-video .iframe-tag{
+   display:block;
+   width:75%;
+   height:100%;
+   margin:auto;
+}
+
+#main-footer .footer-text{
+    font-size: 1.8rem;
+}
+
+/* media queries for resonsiveness */
+
+@media (max-width:631px){
+        .main-content {
+            flex-direction: column;
+            align-items: center;
+            
+        }
+
+        .main-image-content #title-img{
+            max-height: 30rem;
+        }
+
+        .main-text-info .py-2 {
+                 align-items: center;
+        }
+
+        .main-text-info .small-details {
+            text-align: center;
+        }
+
+        .main-content .main-text-info{
+            max-width: 100%;
+        }
+
+        .main-content .main-text-info .anime-title {
+            text-align: center;
+        }
+
+        .main-content .main-text-info .plot-info{
+            width:100%;
+        }
+
+       .gdrive-video {
+           padding-bottom:1rem;
+           margin-top: -2.5rem;
+
+       }
+       
+       .v-js{
+           width:100%;
+           margin:auto;
+       }
+
+       .iframe-video {
+           height: 23.5rem;
+       }
+
+       .iframe-video .iframe-tag{
+           width:95%;
+       }
+    
+    }
+/* slight iframe adjustments */
+@media (min-width:631px) and (max-width:800px){
+    .iframe-video{
+        height: 32rem;
+    }
+}
+
+@media (min-width:1150px){
+    .container{
+        max-width: 135rem;
+    }
+
+    .iframe-video{
+        height: 42rem;
+    }
+}
+
+
+/* slight scrollbar change */
+
+@media (min-width:1100px){
+    ::-webkit-scrollbar{
+        width:11.2px;
+    }
+}
