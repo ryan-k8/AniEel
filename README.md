@@ -1,8 +1,12 @@
 # AniEel
 
-AniEel is a  program written in python which uses webscraper api
-originally created by [BaraniArr](https://github.com/BaraniARR/gogoanimeapi/)(considerably fixed by me) and displays those scraped content along with video through eel
-  - __Note__ : The page isn't responsive at this moment and the code isn't readable too.Also,this application simply get links from the web and doesn't host any video on a server. Keep that in mind
+AniEel is an application written in python to watch anime using webscraping api library(goganimeapi).
+ - __Next Update : CLI setup build__ 
+
+
+
+
+## Update -> UI: Fully responsive & comprehensive !
 
 ## Usage
 
@@ -11,9 +15,9 @@ by the running following code in terminal in the same directory as this reposito
 ```bash
 python -m eel app.py web --onefile --icon=ifyouhaveany
 ```
-![terminal](https://user-images.githubusercontent.com/75524300/115762880-8debf980-a3c1-11eb-93e2-d6c91cf33142.png)
+![terminal](https://user-images.githubusercontent.com/75524300/120779169-6fdaf280-c544-11eb-8d4f-bb97b7bd7097.png)
 
-![eelwindow](https://user-images.githubusercontent.com/75524300/115762861-84fb2800-a3c1-11eb-881d-d6f503ce0591.png)
+![eelwindow](https://user-images.githubusercontent.com/75524300/120780465-c7c62900-c545-11eb-880a-8ad87a5f8358.png)
 
 
 ## Contributing
